@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1">
+	<title>Tasca 5 - Mostrar una taula de multiplicar</title>
+	<!-- Llibreries de bootstrap afegides directament d'internet-->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+</head>
+<body>
+<!-- Aquesta pagina web ens permet generar taules de multiplicar de l'1 al 9 -->
+	<div class="container" align="center">
+		<!-- Definim taula en format de "Striped row" de Bootstrap -->
+		<table class="table table-striped" style="width:auto">
+		<script>
+			var continuar=true; 		//Declarem aquest boolea per poder controlar quan deixar de demanar un nombre entre 1 i 9 
+			while (continuar==true){	//si es un nombre valid sortirem sino ens demanara si volem tornar a introduir un altre o no.
+				
+				var x=prompt("Quina taula de multiplicar entre l'1 i el 9 vols?");
+				
+				if (x>0 && x<10){
+		
+					document.write("<tr><th colspan=2>Taula del "+x+"</th></tr>");
+					//Bucle generador de la taula de multiplicar
+					for (var i = 1; i <= 10; i++) {		
+						document.write("<tr><td>"+x+" x "+i+"</td>");
+		
+						document.write("<td>"+x*i+"</td></tr>");
+					}
+					continuar=false;
+
+				}else {
+					continuar=confirm("El valor introduit no es un nombre entre l'1 i el 9, vols introduir un altre?");
+				}
+			}
+		</script>
+		</table>
+
+		<!-- Boto per poder generar una taula nova sense necessitat d'haver d'actualitzar -->
+		<a href="index.html" class="btn btn-default btn-lg active" role="button">Tornar a mostrar una taula de multiplicar</a>
+
+	</div>
+<!-- Pagina web creada per en Toni Caballero Salas -->
+</body>
+</html>
